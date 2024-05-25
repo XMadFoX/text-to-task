@@ -1,0 +1,17 @@
+{
+	"name": "@ttt/linear",
+	"module": "index.ts",
+	"type": "module",
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"@linear/sdk": "^21.1.0",
+		"@t3-oss/env-core": "^0.10.1",
+		"remeda": "^1.61.0",
+		"zod": "^3.23.8"
+	}
+}
