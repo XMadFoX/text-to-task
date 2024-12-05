@@ -1,4 +1,5 @@
 import OpenAI from 'openai';
+import { expctedTaskJson } from '../generate.ts';
 import { openaiEnv } from './env';
 
 const openai = new OpenAI({
@@ -17,5 +18,16 @@ export async function generate(systemPrompt: string, userPrompt: string) {
 		model: openaiEnv.OPENAI_MODEL,
 	});
 
-	return chatCompletion;
+	const output = chatCompletion.choices[0].message.content;
+	if (!output) throw new Error('No output from OpenAI');
+
+	const json = await parseAsync(output).catch((e) => {
+		throw new Error('Failed to parse JSON from OpenAI');
+	});
+
+	return json;
+}
+
+async function parseAsync(a: string) {
+	return JSON.parse(a) as expctedTaskJson;
 }
