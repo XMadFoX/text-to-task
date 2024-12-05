@@ -1,8 +1,10 @@
 {
 	"name": "@ttt/generate",
+	"main": "index.ts",
 	"version": "0.0.0",
 	"dependencies": {
 		"@t3-oss/env-core": "^0.10.1",
+		"@ttt/core": "workspace:^",
 		"openai": "^4.47.1",
 		"zod": "^3.23.8"
 	}
