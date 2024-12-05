@@ -1,6 +1,6 @@
 import { Bot } from 'grammy';
 import { generateTask } from '@ttt/generate';
-import { createTask } from '@ttt/core';
+import { createTask, getContext } from '@ttt/core';
 import { env } from './env';
 
 // Create a bot object
@@ -29,7 +29,8 @@ bot.on('message', async (ctx) => {
 		reply_parameters: { message_id: ctx.message.message_id },
 	});
 	const timeA = Date.now();
-	const res = await generateTask(msg);
+	const issuesCtx = await getContext();
+	const res = await generateTask(msg, issuesCtx);
 	await createTask(res);
 	const timeB = Date.now();
 	console.log(res);
