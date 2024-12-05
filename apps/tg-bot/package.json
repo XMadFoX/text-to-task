@@ -1,0 +1,16 @@
+{
+  "name": "@ttt/tg-bot",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@ttt/core": "workspace:^",
+    "@ttt/generate": "workspace:^",
+    "grammy": "^1.23.1"
+  }
+}
