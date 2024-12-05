@@ -1,13 +1,12 @@
 import { Bot } from 'grammy';
 import { generateTask } from '@ttt/generate';
 import { createTask } from '@ttt/core';
+import { env } from './env';
 
 // Create a bot object
-const bot = new Bot(process.env.TG_BOT_TOKEN!);
+const bot = new Bot(env.TG_BOT_TOKEN);
 
-const allowedUsers = process.env
-	.TG_BOT_ALLOWED_USERS!.split(',')
-	.map((x) => parseInt(x));
+const allowedUsers = env.TG_BOT_ALLOWED_USERS;
 
 const createIssueConfirmations = new Map();
 
