@@ -1,11 +1,10 @@
 import { createEnv } from '@t3-oss/env-core';
 import { z } from 'zod';
-import '@ttt/core/env';
 
 export const env = createEnv({
 	server: {
-		TG_BOT_TOKEN: z.string().min(1),
-		TG_BOT_ALLOWED_USERS: z.array(z.number()).min(1),
+		LLM_PROVIDER: z.enum(['openai']),
+		ISSUE_TRACKER: z.enum(['linear']),
 	},
 
 	/**

@@ -46,12 +46,18 @@ importers:
 
   packages/core:
     dependencies:
+      '@t3-oss/env-core':
+        specifier: ^0.10.1
+        version: 0.10.1(typescript@5.4.5)(zod@3.23.8)
       '@ttt/linear':
         specifier: workspace:^
         version: link:../linear
       typescript:
         specifier: ^5.0.0
         version: 5.4.5
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@types/bun':
         specifier: latest
