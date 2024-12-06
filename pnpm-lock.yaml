@@ -89,6 +89,9 @@ importers:
       ai:
         specifier: ^4.0.12
         version: 4.0.12(react@18.3.1)(zod@3.23.8)
+      ollama-ai-provider:
+        specifier: ^1.0.0
+        version: 1.0.0(zod@3.23.8)
       ts-pattern:
         specifier: ^5.5.0
         version: 5.5.0
@@ -1013,6 +1016,21 @@ packages:
       whatwg-url: 5.0.0
     dev: false
 
+  /ollama-ai-provider@1.0.0(zod@3.23.8):
+    resolution: {integrity: sha512-72FhNSjS/yav+w1jGX7K/VX0Psv9C0TA1aXk6K2sEloz542AJCYqHIUu8Jt0TWhoB98L9pBZwV8Vr89eBavyzg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.0.0
+    peerDependenciesMeta:
+      zod:
+        optional: true
+    dependencies:
+      '@ai-sdk/provider': 1.0.1
+      '@ai-sdk/provider-utils': 2.0.3(zod@3.23.8)
+      partial-json: 0.1.7
+      zod: 3.23.8
+    dev: false
+
   /p-limit@4.0.0:
     resolution: {integrity: sha512-5b0R4txpzjPWVw/cXXUResoD4hb6U/x9BH08L7nw+GN1sezDzPdxeRvpc9c433fZhBan/wusjbCsqwqm4EIBIQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -1043,6 +1061,10 @@ packages:
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
     dev: true
+
+  /partial-json@0.1.7:
+    resolution: {integrity: sha512-Njv/59hHaokb/hRUjce3Hdv12wd60MtM9Z5Olmn+nehe0QDAsRtRbJPvJ0Z91TusF0SuZRIvnM+S4l6EIP8leA==}
+    dev: false
 
   /path-exists@5.0.0:
     resolution: {integrity: sha512-RjhtfwJOxzcFmNOi6ltcbcu4Iu+FL3zEj83dk4kAS+fVpTxXLO1b38RvJgT/0QwvV/L3aY9TAnyv0EOqW4GoMQ==}

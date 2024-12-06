@@ -8,6 +8,7 @@
 		"@t3-oss/env-core": "^0.10.1",
 		"@ttt/core": "workspace:^",
 		"ai": "^4.0.12",
+		"ollama-ai-provider": "^1.0.0",
 		"ts-pattern": "^5.5.0",
 		"zod": "^3.23.8"
 	}
