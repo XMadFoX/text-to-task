@@ -1,6 +1,6 @@
-import { openaiModel } from './openai';
 import { systemPrompt } from './template';
 import { generateText } from 'ai';
+import { model } from './model';
 
 export type expctedTaskJson = {
 	title: string;
@@ -17,7 +17,7 @@ export async function generateTask(msg: string, ctx: string) {
 	console.debug('System prompt', prompt);
 
 	const { text } = await generateText({
-		model: openaiModel,
+		model,
 		system: prompt,
 		prompt: msg,
 	});

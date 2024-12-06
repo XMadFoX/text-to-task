@@ -1,8 +1,8 @@
 import { createOpenAI } from '@ai-sdk/openai';
-import { openaiEnv } from './env';
+import { env } from '../env';
 
 const openai = createOpenAI({
-	apiKey: openaiEnv.OPENAI_API_KEY,
+	apiKey: env.LLM_API_KEY,
 });
 
-export const openaiModel = openai(openaiEnv.OPENAI_MODEL);
+export const openaiModel = openai(env.LLM_MODEL);

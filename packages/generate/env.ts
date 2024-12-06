@@ -3,7 +3,9 @@ import { z } from 'zod';
 
 export const env = createEnv({
 	server: {
-		ISSUE_TRACKER: z.enum(['linear']),
+		LLM_PROVIDER: z.enum(['openai', 'anthropic']),
+		LLM_API_KEY: z.string(),
+		LLM_MODEL: z.string(),
 	},
 
 	/**
