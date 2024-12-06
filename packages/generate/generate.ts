@@ -1,6 +1,6 @@
 import { systemPrompt } from './template';
 import { generateText } from 'ai';
-import { model } from './model';
+import { model } from './models';
 
 export type expctedTaskJson = {
 	title: string;

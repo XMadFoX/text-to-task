@@ -1,5 +1,5 @@
 import { match } from 'ts-pattern';
-import { env } from './env';
+import { env } from '../env';
 import { openaiModel } from './openai';
 import { anthropicModel } from './anthropic';
 
