@@ -1,34 +1,30 @@
 import { systemPrompt } from './template';
-import { generateText } from 'ai';
+import { generateObject } from 'ai';
 import { model } from './models';
+import { z } from 'zod';
 
-export type expctedTaskJson = {
-	title: string;
-	description: string;
-	statedId: string;
-	assigneeId?: string;
-	projectId?: string;
-	labels?: string[];
-	priority?: number; // 0 = No priority, 1 = Urgent, 2 = High, 3 = Normal, 4 = Low
-};
+const linearCreateIssueSchema = z.object({
+	title: z.string(),
+	description: z.string(),
+	statedId: z.string(),
+	assigneeId: z.string().optional(),
+	projectId: z.string().optional(),
+	labels: z.array(z.string()).optional(),
+	priority: z.number().optional(), // 0 = No priority, 1 = Urgent, 2 = High, 3 = Normal, 4 = Low
+});
+
+export type expectedTaskJson = z.infer<typeof linearCreateIssueSchema>;
 
 export async function generateTask(msg: string, ctx: string) {
 	const prompt = `${systemPrompt}\n${ctx}`;
 	console.debug('System prompt', prompt);
 
-	const { text } = await generateText({
+	const { object } = await generateObject({
 		model,
+		schema: linearCreateIssueSchema,
 		system: prompt,
 		prompt: msg,
 	});
 
-	const json = await parseAsync(text).catch((e) => {
-		throw new Error('Failed to parse JSON from OpenAI');
-	});
-
-	return json;
-}
-
-async function parseAsync(a: string) {
-	return JSON.parse(a) as expctedTaskJson;
+	return object;
 }
