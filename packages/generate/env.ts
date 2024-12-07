@@ -6,7 +6,7 @@ export const env = createEnv({
 		LLM_PROVIDER: z.enum(['openai', 'anthropic', 'ollama']),
 		LLM_API_KEY: z.string(),
 		LLM_MODEL: z.string(),
-		LLM_BASE_URL: z.string(),
+		LLM_BASE_URL: z.string().optional(),
 	},
 
 	/**
