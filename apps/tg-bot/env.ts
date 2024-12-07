@@ -5,7 +5,9 @@ import '@ttt/core/env';
 export const env = createEnv({
 	server: {
 		TG_BOT_TOKEN: z.string().min(1),
-		TG_BOT_ALLOWED_USERS: z.array(z.number()).min(1),
+		TG_BOT_ALLOWED_USERS: z
+			.string()
+			.transform((val) => val.split(',').map(parseInt)),
 	},
 
 	/**
